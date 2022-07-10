@@ -1,7 +1,7 @@
 {
 	"app-id": "net.zgcoder.skycheckers",
 	"runtime": "org.freedesktop.Platform",
-	"runtime-version": "19.08",
+	"runtime-version": "21.08",
 	"sdk": "org.freedesktop.Sdk",
 	"command": "skycheckers",
 	"finish-args": [
@@ -20,8 +20,8 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://www.libsdl.org/release/SDL2-2.0.12.tar.gz",
-					"sha256": "349268f695c02efbc9b9148a70b85e58cefbbf704abd3e91be654db7f1e2c863"
+					"url": "https://www.libsdl.org/release/SDL2-2.0.20.tar.gz",
+					"sha256": "c56aba1d7b5b0e7e999e4a7698c70b63a3394ff9704b5f6e1c57e0c16f04dd06"
 				}
 			],
 			"cleanup": [
@@ -54,8 +54,8 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/zorgiepoo/Sky-Checkers/releases/download/1.2/sc-snap-pak-repo.tgz",
-					"sha256": "ff0a0e7a608e52a3b8b1d8d7fadfc05a953b34142e5fc5af943f2e1b1bd2057d"
+					"url": "https://github.com/zorgiepoo/Sky-Checkers/releases/download/v1.3/sc-snap-pak-repo.tgz",
+					"sha256": "277ea5968d6859e5f1e18b56facaee690d68189f1d52479c5bba1b6b0354a762"
 				}
 			]
 		},
@@ -66,9 +66,9 @@
 				{
 					"type": "extra-data",
 					"filename": "sc-snap-pak-data.tgz",
-					"url": "https://github.com/zorgiepoo/Sky-Checkers/releases/download/1.2/sc-snap-pak-data.tgz",
-					"sha256": "7b3a9655a263e6feb63fdf5f8063fdd7aa51aa124e59aa3c050850ad44abd457",
-					"size": 9482212
+					"url": "https://github.com/zorgiepoo/Sky-Checkers/releases/download/v1.3/sc-snap-pak-data.tgz",
+					"sha256": "142e8abfa0179dccbdbf95bfe405d2a5c86ead99ea39e8ac340b1ed4dd79a8a1",
+					"size": 9483044
 				},
 				{
 					"type": "script",
