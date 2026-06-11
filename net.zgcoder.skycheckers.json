@@ -1,72 +1,78 @@
 {
-	"app-id": "net.zgcoder.skycheckers",
-	"runtime": "org.freedesktop.Platform",
-	"runtime-version": "23.08",
-	"sdk": "org.freedesktop.Sdk",
-	"command": "skycheckers",
-	"finish-args": [
-		"--socket=x11",
-		"--share=ipc",
-		"--device=dri",
-		"--socket=pulseaudio",
-		"--share=network",
-		"--device=all"
-	],
-	"modules": [
-		"shared-modules/glu/glu-9.json",
-		"shared-modules/glew/glew.json",
-		{
-			"name": "skycheckers",
-			"subdir": "linux",
-			"no-autogen": true,
-			"make-args": [
-				"RELEASEOPTS=-D_FLATPAK_BUILD",
-				"INSTALL_DATA=0"
-			],
-			"make-install-args": [
-				"DESTDIR=/",
-				"USER_DIRNAME=app",
-				"INSTALL_DATA=0"
-			],
-			"sources": [
-				{
-					"type": "archive",
-					"url": "https://github.com/zorgiepoo/Sky-Checkers/releases/download/1.3.1/sc-snap-pak-repo.tgz",
-					"sha256": "b75d1fc7bc76d4147f57055f965fb1d752222beba4dc90115b388af5532b3c87"
-				},
-				{
-					"type": "shell",
-					"commands": [
-						"sed -i -s 's\/-lGLEW\/-I\\\/app\\\/share\\\/include -L\\\/app\\\/lib -lGLEW\/g' linux/Makefile",
-						"mkdir ${FLATPAK_DEST}/bin"
-					]
-				}
-			]
-		},
-		{
-			"name": "game-data",
-			"buildsystem": "simple",
-			"sources": [
-				{
-					"type": "extra-data",
-					"filename": "sc-snap-pak-data.tgz",
-					"url": "https://github.com/zorgiepoo/Sky-Checkers/releases/download/1.3.1/sc-snap-pak-data.tgz",
-					"sha256": "aa38596749adbbf9da3f3e57972ef96e048d6f4b30a5a3c68bcd9db0a30d632a",
-					"size": 9483040
-				},
-				{
-					"type": "script",
-					"dest-filename": "apply_extra",
-					"commands": [
-						"tar -xf sc-snap-pak-data.tgz",
-						"rm -f sc-snap-pak-data.tgz"
-					]
-				}
-			],
-			"build-commands": [
-				"install apply_extra /app/bin/apply_extra"
-			]
-		}
-	]
+    "app-id": "net.zgcoder.skycheckers",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "25.08",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "skycheckers",
+    "finish-args": [
+        "--socket=x11",
+        "--share=ipc",
+        "--device=dri",
+        "--socket=pulseaudio",
+        "--share=network",
+        "--device=all"
+    ],
+    "modules": [
+        "shared-modules/glu/glu-9.json",
+        "shared-modules/glew/glew.json",
+        "shared-modules/SDL2/SDL2_image.json",
+        "shared-modules/SDL2/SDL2_ttf.json",
+        {
+            "name": "skycheckers",
+            "subdir": "linux",
+            "no-autogen": true,
+            "make-args": [
+                "RELEASEOPTS=-D_FLATPAK_BUILD",
+                "INSTALL_DATA=0"
+            ],
+            "make-install-args": [
+                "DESTDIR=/",
+                "USER_DIRNAME=app",
+                "INSTALL_DATA=0"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/zorgiepoo/Sky-Checkers/releases/download/1.3.1/sc-snap-pak-repo.tgz",
+                    "sha256": "b75d1fc7bc76d4147f57055f965fb1d752222beba4dc90115b388af5532b3c87"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "sed -i -s 's\/-lGLEW\/-I\\\/app\\\/share\\\/include -L\\\/app\\\/lib -lGLEW\/g' linux/Makefile",
+                        "mkdir ${FLATPAK_DEST}/bin"
+                    ]
+                },
+                {
+                    "type": "patch",
+                    "path": "fix-appdata.patch"
+                }
+            ]
+        },
+        {
+            "name": "game-data",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install apply_extra /app/bin/apply_extra"
+            ],
+            "sources": [
+                {
+                    "type": "extra-data",
+                    "filename": "sc-snap-pak-data.tgz",
+                    "url": "https://github.com/zorgiepoo/Sky-Checkers/releases/download/1.3.1/sc-snap-pak-data.tgz",
+                    "sha256": "aa38596749adbbf9da3f3e57972ef96e048d6f4b30a5a3c68bcd9db0a30d632a",
+                    "size": 9483040
+                },
+                {
+                    "type": "script",
+                    "dest-filename": "apply_extra",
+                    "commands": [
+                        "tar -xf sc-snap-pak-data.tgz",
+                        "rm -f sc-snap-pak-data.tgz"
+                    ]
+                }
+            ]
+        }
+    ]
 }
 
