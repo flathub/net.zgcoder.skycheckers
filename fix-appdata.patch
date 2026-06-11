@@ -1,0 +1,42 @@
+From 15f6fc92dc642ef4baa8e406a293595a4654f516 Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Fri, 12 Jun 2026 00:14:22 +0300
+Subject: [PATCH] Fix appdata paper cuts
+
+Signed-off-by: Sabri Ünal <yakushabb@gmail.com>
+---
+ linux/net.zgcoder.skycheckers.metainfo.xml | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/linux/net.zgcoder.skycheckers.metainfo.xml b/linux/net.zgcoder.skycheckers.metainfo.xml
+index 1ecbaf9..5fa9741 100644
+--- a/linux/net.zgcoder.skycheckers.metainfo.xml
++++ b/linux/net.zgcoder.skycheckers.metainfo.xml
+@@ -18,17 +18,23 @@
+ 		</screenshot>
+ 	</screenshots>
+ 	<url type="homepage">https://zgcoder.net/#sky-checkers</url>
++	<url type="bugtracker">https://github.com/zorgiepoo/Sky-Checkers/issues</url>
++	<url type="vcs-browser">https://github.com/zorgiepoo/Sky-Checkers</url>
++	<developer id="net.zgcoder">
++		<name>Mayur Pawashe</name>
++	</developer>
+ 	<project_group>zgcoder</project_group>
+ 	<content_rating type="oars-1.1">
+ 		<content_attribute id="violence-cartoon">mild</content_attribute>
+ 	</content_rating>
+ 	<releases>
+-		<release version="1.3.1" date="2023-09-10" />
++		<release version="1.3.1" date="2023-09-10">
+ 			<description>
+ 				<p>Add ArcadeGame category to desktop specification</p>
+ 				<p>Update SDL to 2.28.3</p>
+ 				<p>Fix issue with rendering text on some systems</p>
+ 			</description>
++		</release>
+ 		<release version="1.3" date="2022-07-10" />
+ 		<release version="1.2" date="2020-05-03">
+ 			<description>
+--
+libgit2 1.7.2
+
